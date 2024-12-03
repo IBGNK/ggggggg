@@ -17,28 +17,17 @@
         <table class="table table-bordered" id="order-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>S.N.</th>
-              <th>Review By</th>
-              <th>Product Title</th>
-              <th>Review</th>
+              <th>ID</th>
+              <th>Avis par</th>
+              <th>Produit Titre</th>
+              <th>Avis</th>
               <th>Rate</th>
               <th>Date</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
-          <tfoot>
-            <tr>
-              <th>S.N.</th>
-              <th>Review By</th>
-              <th>Product Title</th>
-              <th>Review</th>
-              <th>Rate</th>
-              <th>Date</th>
-              <th>Status</th>
-              <th>Action</th>
-              </tr>
-          </tfoot>
+           
           <tbody>
             @foreach($reviews as $review)
                 <tr>

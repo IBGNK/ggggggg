@@ -53,30 +53,41 @@ class AdminController extends Controller
         return view('backend.setting')->with('data',$data);
     }
 
-    public function settingsUpdate(Request $request){
-        // return $request->all();
-        $this->validate($request,[
-            'short_des'=>'required|string',
-            'description'=>'required|string',
-            'photo'=>'required',
-            'logo'=>'required',
-            'address'=>'required|string',
-            'email'=>'required|email',
-            'phone'=>'required|string',
-        ]);
-        $data=$request->all();
-        // return $data;
-        $settings=Settings::first();
-        // return $settings;
-        $status=$settings->fill($data)->save();
-        if($status){
-            request()->session()->flash('success','Setting successfully updated');
-        }
-        else{
-            request()->session()->flash('error','Please try again');
-        }
-        return redirect()->route('admin');
+    public function settingsUpdate(Request $request)
+{
+    // Validation des données
+    $this->validate($request, [
+        'short_des' => 'required|string',
+        'description' => 'required|string',
+        'photo' => 'required',
+        'logo' => 'required',
+        'address' => 'required|string',
+        'email' => 'required|email',
+        'phone' => 'required|string',
+    ]);
+
+    // Récupérer les données du formulaire
+    $data = $request->all();
+
+    // Récupérer le premier enregistrement de la table Settings ou en créer un nouveau
+    $settings = Settings::first();
+    if (!$settings) {
+        $settings = new Settings(); // Si aucun enregistrement, créer une nouvelle instance
     }
+
+    // Mettre à jour les données
+    $status = $settings->fill($data)->save();
+
+    // Message de confirmation ou d'erreur
+    if ($status) {
+        request()->session()->flash('success', 'Settings successfully updated');
+    } else {
+        request()->session()->flash('error', 'Please try again');
+    }
+
+    // Redirection
+    return redirect()->route('admin');
+}
 
     public function changePassword(){
         return view('backend.layouts.changePassword');

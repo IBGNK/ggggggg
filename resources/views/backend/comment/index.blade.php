@@ -17,7 +17,7 @@
         <table class="table table-bordered" id="order-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>S.N.</th>
+              <th>ID</th>
               <th>Author</th>
               <th>Post Title</th>
               <th>Message</th>
@@ -26,17 +26,6 @@
               <th>Action</th>
             </tr>
           </thead>
-          <tfoot>
-            <tr>
-              <th>S.N.</th>
-              <th>Author</th>
-              <th>Post Title</th>
-              <th>Message</th>
-              <th>Date</th>
-              <th>Status</th>
-              <th>Action</th>
-            </tr>
-          </tfoot>
           <tbody>
             @foreach($comments as $comment)
                 <tr>

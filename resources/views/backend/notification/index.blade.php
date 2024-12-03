@@ -13,9 +13,9 @@
     <table class="table  table-hover admin-table" id="notification-dataTable">
       <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">ID</th>
           <th scope="col">Time</th>
-          <th scope="col">Title</th>
+          <th scope="col">Titre</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
